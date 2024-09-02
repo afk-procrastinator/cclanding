@@ -4,14 +4,12 @@ FROM node:18-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Clone the repository
+RUN apk add --no-cache git
+RUN git clone https://github.com/afk-procrastinator/cclanding.git .
 
 # Install dependencies
 RUN npm install
-
-# Copy the rest of the application code
-COPY . .
 
 # Build the Next.js app
 RUN npm run build
