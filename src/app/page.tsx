@@ -51,11 +51,11 @@ export default function LandingPage() {
   ]
 
   const templates = [
-    { id: 1, name: 'Edison', image: '/edison.jpg', description: 'A classic design for traditional industries' },
-    { id: 2, name: 'Turing', image: '/turing.jpg', description: 'A sleek layout for tech and IT roles' },
-    { id: 3, name: 'Jobs', image: '/jobs.jpg', description: 'A modern style for innovative and creative fields' },
-    { id: 4, name: 'Curie', image: '/curie.jpg', description: 'An elegant design for scientific and research positions' },
-    { id: 5, name: 'Tesla', image: '/tesla.jpg', description: 'A bold template for engineering and energy sectors' },
+    { id: 1, name: 'Edison', image: '/edison.png', description: 'A classic design for traditional industries' },
+    { id: 2, name: 'Turing', image: '/turing.png', description: 'A sleek layout for tech and IT roles' },
+    { id: 3, name: 'Jobs', image: '/jobs.png', description: 'A modern style for innovative and creative fields' },
+    { id: 4, name: 'Curie', image: '/curie.png', description: 'An elegant design for scientific and research positions' },
+    { id: 5, name: 'Tesla', image: '/tesla.png', description: 'A bold template for engineering and energy sectors' },
   ]
 
   const scrollToSection = (sectionId: string) => {
@@ -114,8 +114,8 @@ export default function LandingPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white">
-              Get Started Free
+            <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
+              Get Started Free or Login
             </Button>
           </motion.div>
         </div>
@@ -176,7 +176,7 @@ export default function LandingPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white text-lg py-6 px-8">
+              <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white text-lg py-6 px-8" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
                 Try Cover Companion Now
               </Button>
             </motion.div>
@@ -295,7 +295,7 @@ export default function LandingPage() {
                   <p className="text-lg mb-4">{tier.credits} {typeof tier.credits === 'number' ? (tier.credits === 1 ? 'credit' : 'credits') : tier.credits}</p>
                   <p className="text-[#3d3d3d] mb-6">{tier.description}</p>
                   {tier.highlight && (
-                    <Button className="w-full bg-[#025949] hover:bg-[#025949]/90 text-white">
+                    <Button className="w-full bg-[#025949] hover:bg-[#025949]/90 text-white" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
                       Start For Free
                     </Button>
                   )}
@@ -311,7 +311,7 @@ export default function LandingPage() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block"
               >
-                <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white text-lg py-4 px-6">
+                <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white text-lg py-4 px-6" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
                   Try Our Free Basic Model Now
                 </Button>
               </motion.div>
@@ -341,42 +341,36 @@ export default function LandingPage() {
 
         <section id="templates" className="py-20 bg-white">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#025949] mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#025949] mb-6">
               Cover Letter Templates
             </h2>
-            <div className="relative">
-              <div className="flex overflow-x-auto gap-6 pb-4">
-                {templates.map((template) => (
-                  <motion.div
-                    key={template.id}
-                    className="flex-shrink-0 w-64"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Card className="h-full">
-                      <CardContent className="p-4">
-                        <Image
-                          src={template.image}
-                          alt={template.name}
-                          width={240}
-                          height={320}
-                          className="mb-4 rounded-md object-cover"
-                        />
-                        <h3 className="text-xl font-semibold mb-2 text-[#025949]">{template.name}</h3>
-                        <p className="text-sm text-[#3d3d3d] mb-4">{template.description}</p>
-                        <Button className="w-full bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white">
-                          Use This Template
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-              <button className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
-                <ChevronLeft className="text-[#025949]" />
-              </button>
-              <button className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
-                <ChevronRight className="text-[#025949]" />
-              </button>
+            <p className="text-center text-[#3d3d3d] mb-12 max-w-2xl mx-auto">
+              Choose from our professionally designed templates to make your cover letter stand out. Each template is optimized for ATS readability while maintaining a unique style to catch the eye of hiring managers.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {templates.map((template) => (
+                <motion.div
+                  key={template.id}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-4">
+                      <Image
+                        src={template.image}
+                        alt={template.name}
+                        width={240}
+                        height={320}
+                        className="mb-4 rounded-md object-cover w-full"
+                      />
+                      <h3 className="text-xl font-semibold mb-2 text-[#025949]">{template.name}</h3>
+                      <p className="text-sm text-[#3d3d3d] mb-4">{template.description}</p>
+                      <Button className="w-full bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
+                        Use This Template
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -389,7 +383,7 @@ export default function LandingPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white text-lg py-6 px-8">
+              <Button className="bg-[#D94D1A] hover:bg-[#D94D1A]/90 text-white text-lg py-6 px-8" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
                 Start Creating Your Cover Letter
               </Button>
             </motion.div>
@@ -401,7 +395,7 @@ export default function LandingPage() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <Image src="/logo.png" alt="Cover Companion Logo" width={40} height={40} />
-            <p>&copy; 2023 Cover Companion. All rights reserved.</p>
+            <p>&copy; 2024 Cover Companion. All rights reserved.</p>
           </div>
           <nav className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-[#D94D1A]">Privacy Policy</Link>
