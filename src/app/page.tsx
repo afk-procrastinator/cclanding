@@ -167,7 +167,7 @@ export default function LandingPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="flex-grow p-2 border border-gray-300 rounded mb-2"
+            className="flex-grow p-2 border border-gray-300 rounded mb-2 text-base"
           />
           <Button type="submit" disabled={loading} className="bg-teal text-base mb-2">
             {loading ? 'Sending...' : 'Send Reminder'}
