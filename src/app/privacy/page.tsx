@@ -183,7 +183,7 @@ export default function PrivacyPolicy() {
           <p className="text-subtext0 mb-4">We may update our Privacy Policy from time to time. We will notify you of any changes by:</p>
           <ul className="list-disc list-inside mb-4 text-subtext0">
             <li>Posting the new Privacy Policy on this page</li>
-            <li>Updating the "Last Updated" date at the top of this Privacy Policy</li>
+            <li>Updating the &quot;Last Updated&quot; date at the top of this Privacy Policy</li>
             <li>Sending an email to users (for significant changes)</li>
           </ul>
           <p className="text-subtext0 mb-4">We encourage you to review this Privacy Policy periodically for any changes.</p>
