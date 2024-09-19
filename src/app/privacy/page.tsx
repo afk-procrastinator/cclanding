@@ -170,7 +170,7 @@ export default function PrivacyPolicy() {
             <li>Data portability</li>
             <li>Withdrawal of consent</li>
           </ul>
-          <p className="text-subtext0 mb-4">To exercise these rights, please contact us using the information provided in the "Contact Us" section. We will respond to your request within 30 days.</p>
+          <p className="text-subtext0 mb-4">To exercise these rights, please contact us using the information provided in the &quot;Contact Us&quot; section. We will respond to your request within 30 days.</p>
         </section>
 
         <section className="mb-12">
