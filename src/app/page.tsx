@@ -181,7 +181,7 @@ export default function LandingPage() {
           </Button>
         </form>
         <p className="mt-2 text-xs text-subtext0">
-          By clicking "Send Reminder", you agree to receive emails from Cover Companion and accept our <a href="/tos" className="text-sapphire hover:underline">Terms of Service</a>.
+          By clicking &quot;Send Reminder&quot;, you agree to receive emails from Cover Companion and accept our <a href="/tos" className="text-sapphire hover:underline">Terms of Service</a>.
         </p>
         {message && <p className="mt-2 text-sm">{message}</p>}
       </div>
