@@ -84,7 +84,7 @@ export default function LandingPage() {
   const howItWorksSteps = [
     { title: 'Tell us about yourself!', description: 'Import your LinkedIn profile so we can get a sense of your experience and skills.' },
     { title: 'Choose your job', description: 'Import the job description from LinkedIn, or provide us with the details directly.' },
-    { title: 'Provide some examples', description: 'Share examples of cover letters you\'ve written before to capture your unique tone and style.' },
+    { title: 'Provide some examples', description: 'Share examples of cover letters you&apos;ve written before to capture your unique tone and style.' },
     { title: 'Generate your cover letter!', description: 'Our AI crafts a custom cover letter tailored to your skills, experience, and the job.' },
     { title: 'Review and download', description: 'Make final edits and download your cover letter in Word format with professional layouts.' },
   ]
@@ -159,7 +159,7 @@ export default function LandingPage() {
     return (
       <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
         <p className="font-bold">Cover Companion is designed for desktop use.</p>
-        <p className="text-sm mb-2">Enter your email below, and we'll send you a reminder to try it out on your desktop.</p>
+        <p className="text-sm mb-2">Enter your email below, and we&apos;ll send you a reminder to try it out on your desktop.</p>
         <form onSubmit={handleSubmit} className="flex flex-col items-stretch">
           <input
             type="email"

@@ -197,11 +197,11 @@ export default function PrivacyPolicy() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-text mb-4">11. Third-Party Services</h2>
           <h3 className="text-xl font-semibold text-text mb-2">Bubble.io</h3>
-          <p className="text-subtext0 mb-4">We use Bubble.io to host and build our web application. Please refer to Bubble's Privacy Policy for information on how they process data: <a href="https://bubble.io/privacy" className="text-teal hover:underline">https://bubble.io/privacy</a></p>
+          <p className="text-subtext0 mb-4">We use Bubble.io to host and build our web application. Please refer to Bubble&apos;s Privacy Policy for information on how they process data: <a href="https://bubble.io/privacy" className="text-teal hover:underline">https://bubble.io/privacy</a></p>
           <h3 className="text-xl font-semibold text-text mb-2">Stripe</h3>
-          <p className="text-subtext0 mb-4">We use Stripe for payment processing. Please refer to Stripe's Privacy Policy for information on how they process data: <a href="https://stripe.com/privacy" className="text-teal hover:underline">https://stripe.com/privacy</a></p>
+          <p className="text-subtext0 mb-4">We use Stripe for payment processing. Please refer to Stripe&apos;s Privacy Policy for information on how they process data: <a href="https://stripe.com/privacy" className="text-teal hover:underline">https://stripe.com/privacy</a></p>
           <h3 className="text-xl font-semibold text-text mb-2">LinkedIn</h3>
-          <p className="text-subtext0 mb-4">If you choose to connect your LinkedIn account, we access your public profile information. Please refer to LinkedIn's Privacy Policy: <a href="https://www.linkedin.com/legal/privacy-policy" className="text-teal hover:underline">https://www.linkedin.com/legal/privacy-policy</a></p>
+          <p className="text-subtext0 mb-4">If you choose to connect your LinkedIn account, we access your public profile information. Please refer to LinkedIn&apos;s Privacy Policy: <a href="https://www.linkedin.com/legal/privacy-policy" className="text-teal hover:underline">https://www.linkedin.com/legal/privacy-policy</a></p>
         </section>
 
         <section className="mb-12">
