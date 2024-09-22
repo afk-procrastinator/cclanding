@@ -8,7 +8,7 @@ import { motion, useInView } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Laptop, Brush, LinkedIn, Description, AccessTime, ThumbUp, Person, AssignmentTurnedIn, ChevronLeft, ChevronRight } from '@mui/icons-material'
+import { Laptop, Brush, LinkedIn, Description, AccessTime, ThumbUp, Person, AssignmentTurnedIn, ChevronLeft, ChevronRight, Twitter } from '@mui/icons-material'
 import { useRouter } from 'next/navigation'
 
 export default function LandingPage() {
@@ -79,6 +79,27 @@ export default function LandingPage() {
     { question: 'Is my data safe?', answer: 'Yes, we take data privacy seriously. Your information is encrypted and never shared with third parties. We only use your data to generate cover letters and improve our service.' },
     { question: 'Can I edit the generated cover letters?', answer: 'While our AI creates high-quality cover letters, you can always edit and personalize them further to ensure they perfectly match your needs.' },
     { question: 'How many credits do I get with the free tier?', answer: 'The free tier allows you to generate a limited number of cover letters using our basic AI model. For access to our advanced AI and more features, check out our paid plans.' },
+    { question: 'Am I missing out if I don\'t use AI?', answer: 'Simply put, yes. Recent surveys show that about 45% of job seekers use AI to improve their resumes, and nearly 40% use AI tools when applying for jobs. AI tools allow you to apply to more jobs in less time, without losing the personal touch that makes your application stand out. The worst thing you can do is not use AI, because your competitors likely are.' },
+    { question: 'Who is this for?', answer: 'This is for anyone who is currently applying to jobs, or planning to soon. Our algorithm is designed to be flexible and customizable — whether you\'re applying to jobs in Silicon Valley, D.C., or New York; a new grad or a seasoned professional; a software engineer or a lawyer; a cover letter for a tech job or a cover letter for a law job — we\'ve got you covered.' },
+    { 
+      question: 'How did you make this?', 
+      answer: (
+        <>
+          The app&apos;s frontend uses <Link href="https://bubble.io" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline">Bubble.io</Link>, 
+          and the backend uses a custom-built API running <Link href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline">FastAPI</Link>. 
+          This webpage was made with <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline">Next.js</Link>, 
+          with lots of help from <Link href="https://cursor.sh" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline">Cursor</Link> and 
+          <Link href="https://v0.dev" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline"> v0.dev</Link>. 
+          <Link href="https://www.anthropic.com" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline"> Anthropic</Link>&apos;s Claude 3.5 Sonnet models power the AI, 
+          combined with tomquirk&apos;s <Link href="https://pypi.org/project/linkedin-api/" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline">linkedin-api</Link> library. 
+          We also use <Link href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-sapphire hover:underline">Vercel</Link> for hosting and deployment.
+        </>
+      )
+    },
+    { question: 'Why use AI to write cover letters?', answer: 'AI-powered cover letter writing offers several advantages: time-saving, consistency, personalization at scale, up-to-date best practices, overcoming writer\'s block, language enhancement, integration with your profile, and continuous improvement.' },
+    { question: 'How did you decide your pricing model?', answer: 'Our model is not cheap to run, and neither are hosting costs! Cover letters shake out to be around $1 each for users, but this drops much lower with volume. We think the subscription model is annoying — plus, your job search might last a week, month, or a year. We don\'t want your first paycheck to go to us!' },
+    { question: 'Who are you?', answer: 'I\'m Spencer, a recent college graduate! I built this to help me and my friends get jobs, and now it\'s helping other people get jobs too. I\'m not a real software engineer (I studied law and linguistics), but I just know enough to be dangerous.' },
+    { question: 'What do I get for reading this far?', answer: 'You get 10 free credits! Use code "FAQ" on the credits page to get them. Enjoy!' },
   ]
 
   const howItWorksSteps = [
@@ -95,6 +116,13 @@ export default function LandingPage() {
     { id: 3, name: 'Jobs', image: '/jobs.png', description: 'A modern style for innovative and creative fields' },
     { id: 4, name: 'Curie', image: '/curie.png', description: 'An elegant design for scientific and research positions' },
     { id: 5, name: 'Tesla', image: '/tesla.png', description: 'A bold template for engineering and energy sectors' },
+  ]
+
+  const statistics = [
+    { value: 57, description: 'of student jobseekers have used AI tools to support job applications', source: 'www.ft.com/content/30a032dd-bdaa-4aee-bc51-754867abbde0', sourceName: 'Neurosight' },
+    { value: 47, description: 'use AI or plan to use it to enhance a resume or cover letter', source: 'comptiacdn.azureedge.net/webcontent/docs/default-source/research-reports/comptia-job-seeker-trends-2024_july-release.pdf?sfvrsn=64e24e02_2', sourceName: 'CompTIA' },
+    { value: 90, description: 'of hiring managers say it\'s acceptable to use generative AI in application materials', source: 'www.forbes.com/sites/chriswestfall/2024/01/26/study-says-hiring-managers-expect-and-prefer-ai-enhanced-resumes/?sh=7a05399e3722', sourceName: 'Sago/Canva' },
+    { value: 45, description: 'have used AI in the job-hunting process', source: 'www.forbes.com/sites/chriswestfall/2024/01/26/study-says-hiring-managers-expect-and-prefer-ai-enhanced-resumes/?sh=7a05399e3722', sourceName: 'Sago/Canva' },
   ]
 
   const scrollToSection = (sectionId: string) => {
@@ -196,6 +224,32 @@ export default function LandingPage() {
   const pricingInView = useInView(pricingRef, { once: true, amount: 0.2 })
   const templatesInView = useInView(templatesRef, { once: true, amount: 0.2 })
 
+  const CountUpAnimation = ({ end, duration = 2000 }) => {
+    const [count, setCount] = useState(0)
+    const nodeRef = useRef(null)
+    const inView = useInView(nodeRef, { once: true })
+  
+    useEffect(() => {
+      if (inView) {
+        let start = 0
+        const increment = end / (duration / 16) // 60 FPS
+        const timer = setInterval(() => {
+          start += increment
+          if (start < end) {
+            setCount(Math.floor(start))
+          } else {
+            setCount(end)
+            clearInterval(timer)
+          }
+        }, 16)
+  
+        return () => clearInterval(timer)
+      }
+    }, [end, duration, inView])
+  
+    return <span ref={nodeRef}>{count}%</span>
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-base text-text">
       <motion.header 
@@ -277,12 +331,58 @@ export default function LandingPage() {
           </motion.div>
         </section>
 
+        {/* Updated Statistics Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="py-16 bg-surface0"
+        >
+          <div className="container mx-auto">
+            <div className="flex flex-wrap justify-center gap-8">
+              {statistics.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className="text-center flex-1 min-w-[200px] max-w-[300px]"
+                >
+                  <p className="text-6xl font-bold text-sapphire mb-2">
+                    <CountUpAnimation end={stat.value} />
+                  </p>
+                  <p className="text-subtext0 mb-2 text-lg">{stat.description}</p>
+                  <a href={`https://${stat.source}`} target="_blank" rel="noopener noreferrer" className="text-xs text-sapphire hover:underline">
+                    {stat.sourceName}
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <p className="text-xl text-subtext0 mb-6">
+                Don&apos;t fall behind in your job search. Join the AI revolution today!
+              </p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  className="bg-teal hover:bg-teal/90 text-mantle text-lg py-4 px-6" 
+                  onClick={() => window.location.href = 'https://app.covercompanion.ai'}
+                >
+                  Start Your AI-Powered Job Search
+                </Button>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
         <motion.section 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           id="features" 
-          className="py-20 bg-surface0"
+          className="py-20 bg-mantle"
         >
           <div className="container mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-12">
@@ -312,7 +412,7 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           id="how-it-works" 
-          className="py-20 bg-mantle"
+          className="py-20 bg-surface1"
         >
           <div className="container mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-12">
@@ -379,7 +479,7 @@ export default function LandingPage() {
         <motion.section 
           ref={pricingRef}
           id="pricing" 
-          className="py-20 bg-mantle"
+          className="py-20 bg-base"
         >
           <div className="container mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-6">
@@ -435,7 +535,7 @@ export default function LandingPage() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block"
               >
-                <Button className="bg-teal hover:bg-teal/90 text-base text-lg py-4 px-6" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
+                <Button className="bg-teal hover:bg-teal/90 text-mantle text-lg py-4 px-6" onClick={() => window.location.href = 'https://app.covercompanion.ai'}>
                   Try Our Free Basic Model Now
                 </Button>
               </motion.div>
@@ -448,7 +548,7 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
           id="faq" 
-          className="py-20 bg-surface0"
+          className="py-20 bg-surface1"
         >
           <div className="container mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-12">
@@ -460,7 +560,7 @@ export default function LandingPage() {
                   <AccordionItem key={index} value={`item-${index}`}>
                     <AccordionTrigger className="text-text">{item.question}</AccordionTrigger>
                     <AccordionContent className="text-subtext0">
-                      {item.answer}
+                      {typeof item.answer === 'string' ? item.answer : item.answer}
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -472,7 +572,7 @@ export default function LandingPage() {
         <motion.section 
           ref={templatesRef}
           id="templates" 
-          className="py-20 bg-surface0"
+          className="py-20 bg-mantle"
         >
           <div className="container mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-6">
@@ -548,6 +648,9 @@ export default function LandingPage() {
             <Link href="/privacy" className="hover:text-sapphire">Privacy Policy</Link>
             <Link href="/tos" className="hover:text-sapphire">Terms of Service</Link>
             <Link href="/contact" className="hover:text-sapphire">Contact</Link>
+            <Link href="https://x.com/CoverCompanion" className="hover:text-sapphire">
+              <Twitter className="h-6 w-6" />
+            </Link>
           </nav>
         </div>
       </motion.footer>
