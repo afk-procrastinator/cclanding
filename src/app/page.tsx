@@ -224,7 +224,7 @@ export default function LandingPage() {
   const pricingInView = useInView(pricingRef, { once: true, amount: 0.2 })
   const templatesInView = useInView(templatesRef, { once: true, amount: 0.2 })
 
-  const CountUpAnimation = ({ end, duration = 2000 }) => {
+  const CountUpAnimation = ({ end, duration = 2000 }: { end: number; duration?: number }) => {
     const [count, setCount] = useState(0)
     const nodeRef = useRef(null)
     const inView = useInView(nodeRef, { once: true })
